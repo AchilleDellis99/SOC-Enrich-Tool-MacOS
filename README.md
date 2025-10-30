@@ -37,7 +37,7 @@ It enables instant lookups of IPs, domains, file hashes, ASNs, and mail records 
 ## 💻 Installation
 
 ### Option 1 — Download Prebuilt DMG
-Download the latest `.dmg` release from the [**Releases**](../../releases) page and drag the app to your **Applications** folder.
+Download the latest `.dmg` release and drag the app to your **Applications** folder.
 
 ### Option 2 — Build from Source
 ```bash
