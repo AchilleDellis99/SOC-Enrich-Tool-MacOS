@@ -31,7 +31,7 @@ It enables instant lookups of IPs, domains, file hashes, ASNs, and mail records 
 | **IP Address** | `8.8.8.8` | VirusTotal, OTX, GreyNoise, AbuseIPDB, Shodan, IPInfo |
 | **Domain / FQDN** | `example.com` | VirusTotal, OTX, URLScan, GreyNoise |
 | **SHA-256 Hash** | `44d88612fea8a8f36de82e1278abb02f` | VirusTotal, Hybrid Analysis, Abuse.ch |
-| **ASN** | `AS15169` | IPInfo, BGP.HE.NET |
+| **ASN** | `15169` | IPInfo, BGP.HE.NET |
 | **Email / MX** | `user@domain.com` | MXToolbox (MX, SPF, DMARC) |
 
 ---
