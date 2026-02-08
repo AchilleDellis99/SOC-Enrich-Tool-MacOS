@@ -6,10 +6,28 @@
 ![Status](https://img.shields.io/badge/status-active-success)
 ![Languages](https://img.shields.io/badge/languages-13-green)
 
-**SOC Enrich Tool** is a powerful, open-source macOS menu bar application built for **SOC analysts**, threat hunters, and cybersecurity professionals.  
-It performs instant IOC enrichment, supports 51 open intelligence sources, and includes export, history, service toggling, and smart auto-recognition.
+**SOC Enrich Tool** is an advanced, open-source macOS application designed for **SOC analysts, threat hunters, DFIR teams, and cybersecurity professionals**.
 
-![SOC Enrich Tool Screenshot](docs/screenshot.png)
+It provides fast and reliable **IOC enrichment** by combining open-source intelligence, heuristic analysis, and optional API-based services in a privacy-friendly and fully sandboxed macOS environment.
+
+Starting from **v3.0,1**, SOC Enrich Tool adopts a **dual-application architecture**:
+
+- 🪟 A **menu bar application** for instant lookups and rapid IOC triage
+- 🖥️ A **traditional macOS application (IOC Analyzer)** for deep analysis, dashboards, and correlation
+
+By clicking **“Open IOC Analyzer”**(Traditional macOS application) from the menu bar app, a full-featured macOS application is launched, sharing **history, dashboards, preferences, and intelligence sources** with the menu bar app.
+
+The IOC Analyzer introduces:
+- 🧠 **Local heuristic analysis** (no API keys required)
+- 🔗 **Hybrid API / no-API intelligence support** (OTX, VirusTotal, AbuseIPDB, and more)
+- 📊 **Dashboards and correlation views**
+- 🕓 **Unified history and shared state** across both applications
+
+SOC Enrich Tool is designed to bridge **rapid triage** and **deep investigation**, allowing analysts to move seamlessly from quick lookups to advanced IOC analysis within a single macOS ecosystem.
+
+![SOC Enrich Tool Screenshot](screenshots/screenshot.png)
+![SOC Enrich Tool Screenshot](screenshots/screenshot-analyze-hp.png)
+![SOC Enrich Tool Screenshot](screenshots/screenshot-analyze-dash.png)
 
 ---
 
@@ -158,3 +176,4 @@ Download the latest `.dmg` release and drag the app to your **Applications** fol
 git clone https://github.com/AchilleDellis99/SOC-Enrich-Tool-MacOS.git
 cd SOC-Enrich-Tool-MacOS
 open SOC-Enrich-Tool.xcodeproj
+
