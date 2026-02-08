@@ -132,6 +132,8 @@ enum LocalizedKey {
     case categorySHA
     case categoryASN
     case categoryEmail
+    case openFullApp
+    case openFullAppDesc
     
     func localized(for language: AppLanguage) -> String {
         switch language {
@@ -179,7 +181,7 @@ private let englishStrings: [LocalizedKey: String] = [
     .asnButton: "ASN Lookup",
     .openBackground: "Open in background",
     .prefillClipboard: "Load from clipboard",
-    .footerVersion: "v3.0",
+    .footerVersion: "v3.2",
     .footerTitle: "SOC Enrichment Tool",
     .lastSearch: "Last search",
     .clearButton: "Clear",
@@ -210,7 +212,9 @@ private let englishStrings: [LocalizedKey: String] = [
     .categoryDomain: "Domain",
     .categorySHA: "SHA-256",
     .categoryASN: "ASN",
-    .categoryEmail: "Email"
+    .categoryEmail: "Email",
+    .openFullApp: "Open IOC Analyzer",
+    .openFullAppDesc: "Full threat analysis with free APIs"
 ]
 
 // MARK: - Italian Strings
@@ -227,7 +231,7 @@ private let italianStrings: [LocalizedKey: String] = [
     .asnButton: "Ricerca ASN",
     .openBackground: "Apri in background",
     .prefillClipboard: "Carica da clipboard",
-    .footerVersion: "v3.0",
+    .footerVersion: "v3.2",
     .footerTitle: "SOC Enrichment Tool",
     .lastSearch: "Ultima ricerca",
     .clearButton: "Cancella",
@@ -258,7 +262,9 @@ private let italianStrings: [LocalizedKey: String] = [
     .categoryDomain: "Dominio",
     .categorySHA: "SHA-256",
     .categoryASN: "ASN",
-    .categoryEmail: "Email"
+    .categoryEmail: "Email",
+    .openFullApp: "Apri IOC Analyzer",
+    .openFullAppDesc: "Analisi completa con API gratuite"
 ]
 
 // MARK: - Spanish Strings
@@ -275,7 +281,7 @@ private let spanishStrings: [LocalizedKey: String] = [
     .asnButton: "Búsqueda ASN",
     .openBackground: "Abrir en segundo plano",
     .prefillClipboard: "Cargar del portapapeles",
-    .footerVersion: "v3.0",
+    .footerVersion: "v3.2",
     .footerTitle: "SOC Enrichment Tool",
     .lastSearch: "Última búsqueda",
     .clearButton: "Limpiar",
@@ -306,7 +312,9 @@ private let spanishStrings: [LocalizedKey: String] = [
     .categoryDomain: "Dominio",
     .categorySHA: "SHA-256",
     .categoryASN: "ASN",
-    .categoryEmail: "Email"
+    .categoryEmail: "Email",
+    .openFullApp: "Abrir IOC Analyzer",
+    .openFullAppDesc: "Análisis completo con APIs gratuitas"
 ]
 
 // MARK: - German Strings
@@ -323,7 +331,7 @@ private let germanStrings: [LocalizedKey: String] = [
     .asnButton: "ASN-Suche",
     .openBackground: "Im Hintergrund öffnen",
     .prefillClipboard: "Aus Zwischenablage laden",
-    .footerVersion: "v3.0",
+    .footerVersion: "v3.2",
     .footerTitle: "SOC Enrichment Tool",
     .lastSearch: "Letzte Suche",
     .clearButton: "Löschen",
@@ -354,7 +362,9 @@ private let germanStrings: [LocalizedKey: String] = [
     .categoryDomain: "Domain",
     .categorySHA: "SHA-256",
     .categoryASN: "ASN",
-    .categoryEmail: "E-Mail"
+    .categoryEmail: "E-Mail",
+    .openFullApp: "IOC Analyzer öffnen",
+    .openFullAppDesc: "Vollständige Analyse mit kostenlosen APIs"
 ]
 
 // MARK: - French Strings
@@ -371,7 +381,7 @@ private let frenchStrings: [LocalizedKey: String] = [
     .asnButton: "Recherche ASN",
     .openBackground: "Ouvrir en arrière-plan",
     .prefillClipboard: "Charger du presse-papiers",
-    .footerVersion: "v3.0",
+    .footerVersion: "v3.2",
     .footerTitle: "SOC Enrichment Tool",
     .lastSearch: "Dernière recherche",
     .clearButton: "Effacer",
@@ -402,7 +412,9 @@ private let frenchStrings: [LocalizedKey: String] = [
     .categoryDomain: "Domaine",
     .categorySHA: "SHA-256",
     .categoryASN: "ASN",
-    .categoryEmail: "Email"
+    .categoryEmail: "Email",
+    .openFullApp: "Ouvrir IOC Analyzer",
+    .openFullAppDesc: "Analyse complète avec APIs gratuites"
 ]
 
 // MARK: - Portuguese Strings
@@ -419,7 +431,7 @@ private let portugueseStrings: [LocalizedKey: String] = [
     .asnButton: "Pesquisa ASN",
     .openBackground: "Abrir em segundo plano",
     .prefillClipboard: "Carregar da área de transferência",
-    .footerVersion: "v3.0",
+    .footerVersion: "v3.2",
     .footerTitle: "SOC Enrichment Tool",
     .lastSearch: "Última pesquisa",
     .clearButton: "Limpar",
@@ -450,7 +462,9 @@ private let portugueseStrings: [LocalizedKey: String] = [
     .categoryDomain: "Domínio",
     .categorySHA: "SHA-256",
     .categoryASN: "ASN",
-    .categoryEmail: "Email"
+    .categoryEmail: "Email",
+    .openFullApp: "Abrir IOC Analyzer",
+    .openFullAppDesc: "Análise completa com APIs gratuitas"
 ]
 
 // MARK: - Russian Strings
@@ -467,7 +481,7 @@ private let russianStrings: [LocalizedKey: String] = [
     .asnButton: "Поиск ASN",
     .openBackground: "Открыть в фоне",
     .prefillClipboard: "Загрузить из буфера",
-    .footerVersion: "v3.0",
+    .footerVersion: "v3.2",
     .footerTitle: "SOC Enrichment Tool",
     .lastSearch: "Последний поиск",
     .clearButton: "Очистить",
@@ -498,7 +512,9 @@ private let russianStrings: [LocalizedKey: String] = [
     .categoryDomain: "Домен",
     .categorySHA: "SHA-256",
     .categoryASN: "ASN",
-    .categoryEmail: "Email"
+    .categoryEmail: "Email",
+    .openFullApp: "Открыть IOC Analyzer",
+    .openFullAppDesc: "Полный анализ с бесплатными API"
 ]
 
 // MARK: - Chinese Strings
@@ -515,7 +531,7 @@ private let chineseStrings: [LocalizedKey: String] = [
     .asnButton: "ASN查询",
     .openBackground: "在后台打开",
     .prefillClipboard: "从剪贴板加载",
-    .footerVersion: "v3.0",
+    .footerVersion: "v3.2",
     .footerTitle: "SOC Enrichment Tool",
     .lastSearch: "上次搜索",
     .clearButton: "清除",
@@ -546,7 +562,9 @@ private let chineseStrings: [LocalizedKey: String] = [
     .categoryDomain: "域名",
     .categorySHA: "SHA-256",
     .categoryASN: "ASN",
-    .categoryEmail: "Email"
+    .categoryEmail: "Email",
+    .openFullApp: "打开 IOC Analyzer",
+    .openFullAppDesc: "使用免费API进行完整分析"
 ]
 
 // MARK: - Japanese Strings
@@ -563,7 +581,7 @@ private let japaneseStrings: [LocalizedKey: String] = [
     .asnButton: "ASN検索",
     .openBackground: "バックグラウンドで開く",
     .prefillClipboard: "クリップボードから読み込む",
-    .footerVersion: "v3.0",
+    .footerVersion: "v3.2",
     .footerTitle: "SOC Enrichment Tool",
     .lastSearch: "最後の検索",
     .clearButton: "クリア",
@@ -594,7 +612,9 @@ private let japaneseStrings: [LocalizedKey: String] = [
     .categoryDomain: "ドメイン",
     .categorySHA: "SHA-256",
     .categoryASN: "ASN",
-    .categoryEmail: "Email"
+    .categoryEmail: "Email",
+    .openFullApp: "IOC Analyzerを開く",
+    .openFullAppDesc: "無料APIで完全分析"
 ]
 
 // MARK: - Korean Strings
@@ -611,7 +631,7 @@ private let koreanStrings: [LocalizedKey: String] = [
     .asnButton: "ASN 검색",
     .openBackground: "백그라운드에서 열기",
     .prefillClipboard: "클립보드에서 로드",
-    .footerVersion: "v3.0",
+    .footerVersion: "v3.2",
     .footerTitle: "SOC Enrichment Tool",
     .lastSearch: "마지막 검색",
     .clearButton: "지우기",
@@ -642,7 +662,9 @@ private let koreanStrings: [LocalizedKey: String] = [
     .categoryDomain: "도메인",
     .categorySHA: "SHA-256",
     .categoryASN: "ASN",
-    .categoryEmail: "Email"
+    .categoryEmail: "Email",
+    .openFullApp: "IOC Analyzer 열기",
+    .openFullAppDesc: "무료 API로 완전한 분석"
 ]
 
 // MARK: - Arabic Strings
@@ -659,7 +681,7 @@ private let arabicStrings: [LocalizedKey: String] = [
     .asnButton: "بحث ASN",
     .openBackground: "فتح في الخلفية",
     .prefillClipboard: "التحميل من الحافظة",
-    .footerVersion: "v3.0",
+    .footerVersion: "v3.2",
     .footerTitle: "SOC Enrichment Tool",
     .lastSearch: "آخر بحث",
     .clearButton: "مسح",
@@ -690,7 +712,9 @@ private let arabicStrings: [LocalizedKey: String] = [
     .categoryDomain: "النطاق",
     .categorySHA: "SHA-256",
     .categoryASN: "ASN",
-    .categoryEmail: "البريد الإلكتروني"
+    .categoryEmail: "البريد الإلكتروني",
+    .openFullApp: "افتح IOC Analyzer",
+    .openFullAppDesc: "تحليل كامل مع واجهات برمجة التطبيقات المجانية"
 ]
 
 // MARK: - Hindi Strings
@@ -707,7 +731,7 @@ private let hindiStrings: [LocalizedKey: String] = [
     .asnButton: "ASN खोज",
     .openBackground: "पृष्ठभूमि में खोलें",
     .prefillClipboard: "क्लिपबोर्ड से लोड करें",
-    .footerVersion: "v3.0",
+    .footerVersion: "v3.2",
     .footerTitle: "SOC Enrichment Tool",
     .lastSearch: "अंतिम खोज",
     .clearButton: "साफ़ करें",
@@ -738,7 +762,9 @@ private let hindiStrings: [LocalizedKey: String] = [
     .categoryDomain: "डोमेन",
     .categorySHA: "SHA-256",
     .categoryASN: "ASN",
-    .categoryEmail: "Email"
+    .categoryEmail: "Email",
+    .openFullApp: "IOC Analyzer खोलें",
+    .openFullAppDesc: "मुफ्त API के साथ पूर्ण विश्लेषण"
 ]
 
 // MARK: - Greek Strings
@@ -755,7 +781,7 @@ private let greekStrings: [LocalizedKey: String] = [
     .asnButton: "Αναζήτηση ASN",
     .openBackground: "Άνοιγμα στο παρασκήνιο",
     .prefillClipboard: "Φόρτωση από πρόχειρο",
-    .footerVersion: "v3.0",
+    .footerVersion: "v3.2",
     .footerTitle: "SOC Enrichment Tool",
     .lastSearch: "Τελευταία αναζήτηση",
     .clearButton: "Εκκαθάριση",
@@ -786,5 +812,7 @@ private let greekStrings: [LocalizedKey: String] = [
     .categoryDomain: "Τομέας",
     .categorySHA: "SHA-256",
     .categoryASN: "ASN",
-    .categoryEmail: "Email"
+    .categoryEmail: "Email",
+    .openFullApp: "Άνοιγμα IOC Analyzer",
+    .openFullAppDesc: "Πλήρης ανάλυση με δωρεάν APIs"
 ]

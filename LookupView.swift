@@ -49,7 +49,7 @@ struct LookupView: View {
             footerView
         }
         .padding(20)
-        .frame(width: 400, height: 500)
+        .frame(width: 400, height: 600)
         .background(Color(NSColor.windowBackgroundColor))
         .onChange(of: popoverState.shouldRefresh) { _ in
             loadClipboardIfNeeded()
@@ -326,7 +326,56 @@ struct LookupView: View {
     
     // MARK: - Settings
     private var settingsSection: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: 12) {
+            // Open Full App Button
+            Button(action: openIOCAnalyzer) {
+                HStack(spacing: 8) {
+                    Image(systemName: "shield.lefthalf.filled.badge.checkmark")
+                        .font(.body)
+                    
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(localization.getString(.openFullApp))
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                        Text(localization.getString(.openFullAppDesc))
+                            .font(.caption2)
+                            .foregroundColor(.secondary)
+                    }
+                    
+                    Spacer()
+                    
+                    Image(systemName: "arrow.up.right.square")
+                        .font(.body)
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 10)
+                .padding(.horizontal, 12)
+                .background(
+                    LinearGradient(
+                        colors: [.blue.opacity(0.15), .purple.opacity(0.15)],
+                        startPoint: .leading,
+                        endPoint: .trailing
+                    )
+                )
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .strokeBorder(
+                            LinearGradient(
+                                colors: [.blue.opacity(0.4), .purple.opacity(0.4)],
+                                startPoint: .leading,
+                                endPoint: .trailing
+                            ),
+                            lineWidth: 1
+                        )
+                )
+                .cornerRadius(8)
+            }
+            .buttonStyle(.plain)
+            
+            Divider()
+                .padding(.vertical, 4)
+            
+            // Settings toggles
             Toggle(isOn: $openInBackground) {
                 HStack(spacing: 6) {
                     Image(systemName: "safari")
@@ -427,8 +476,25 @@ struct LookupView: View {
         
         lastSearchType = name
         
-        // Add to history
+        // Add to history (both popover history and IOC Analyzer history)
         historyManager.addSearch(value: trimmedInput, type: type)
+        
+        // Also add to IOC Analyzer history for unified tracking
+        let typeString: String
+        switch type {
+        case .ip: typeString = "IP"
+        case .domain: typeString = "Domain"
+        case .sha: typeString = "SHA-256"
+        case .mail: typeString = "Email"
+        case .asn: typeString = "ASN"
+        }
+        IOCAnalyzerHistoryManager.shared.addRecord(
+            value: trimmedInput,
+            type: typeString,
+            verdict: "unknown", // Popover doesn't do full analysis
+            sourcesCount: urls.count,
+            source: "popover"
+        )
         
         // Haptic feedback
         NSHapticFeedbackManager.defaultPerformer.perform(.generic, performanceTime: .default)
@@ -452,17 +518,16 @@ struct LookupView: View {
     }
     
     private func openLanguageSettings() {
-        let windowController = LanguageSettingsWindowController()
-        windowController.showWindow(nil)
-        windowController.window?.makeKeyAndOrderFront(nil)
-        NSApp.activate(ignoringOtherApps: true)
+        LanguageSettingsWindowController.show()
     }
     
     private func openServiceSettings() {
-        let windowController = ServiceSettingsWindowController()
-        windowController.showWindow(nil)
-        windowController.window?.makeKeyAndOrderFront(nil)
-        NSApp.activate(ignoringOtherApps: true)
+        ServiceSettingsWindowController.show()
+    }
+    
+    private func openIOCAnalyzer() {
+        // Pass current input to IOC Analyzer and show with Dock icon
+        IOCAnalyzerWindowController.show(withInput: input)
     }
 }
 
@@ -811,5 +876,5 @@ extension ArtifactType {
 
 #Preview {
     LookupView(popoverState: PopoverState())
-        .frame(width: 400, height: 500)
+        .frame(width: 400, height: 800)
 }

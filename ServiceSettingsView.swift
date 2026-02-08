@@ -246,6 +246,8 @@ struct ServiceRow: View {
 // MARK: - Window Controller
 
 class ServiceSettingsWindowController: NSWindowController {
+    static var sharedInstance: ServiceSettingsWindowController?
+    
     convenience init() {
         let window = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 600, height: 500),
@@ -256,8 +258,21 @@ class ServiceSettingsWindowController: NSWindowController {
         window.title = "Gestione Servizi"
         window.center()
         window.contentView = NSHostingView(rootView: ServiceSettingsView())
+        window.isReleasedWhenClosed = false
         
         self.init(window: window)
+    }
+    
+    static func show() {
+        NSApp.setActivationPolicy(.regular)
+        
+        if sharedInstance == nil {
+            sharedInstance = ServiceSettingsWindowController()
+        }
+        
+        sharedInstance?.showWindow(nil)
+        sharedInstance?.window?.makeKeyAndOrderFront(nil)
+        NSApp.activate(ignoringOtherApps: true)
     }
 }
 

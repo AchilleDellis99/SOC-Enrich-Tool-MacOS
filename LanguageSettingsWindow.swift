@@ -9,6 +9,8 @@ import SwiftUI
 import AppKit
 
 class LanguageSettingsWindowController: NSWindowController {
+    static var sharedInstance: LanguageSettingsWindowController?
+    
     convenience init() {
         let window = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 400, height: 500),
@@ -19,8 +21,21 @@ class LanguageSettingsWindowController: NSWindowController {
         window.center()
         window.title = "Language Settings"
         window.contentView = NSHostingView(rootView: LanguageSettingsView())
+        window.isReleasedWhenClosed = false
         
         self.init(window: window)
+    }
+    
+    static func show() {
+        NSApp.setActivationPolicy(.regular)
+        
+        if sharedInstance == nil {
+            sharedInstance = LanguageSettingsWindowController()
+        }
+        
+        sharedInstance?.showWindow(nil)
+        sharedInstance?.window?.makeKeyAndOrderFront(nil)
+        NSApp.activate(ignoringOtherApps: true)
     }
 }
 

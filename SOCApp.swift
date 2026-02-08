@@ -23,6 +23,26 @@ class PopoverState: ObservableObject {
     @Published var shouldRefresh = false
 }
 
+// MARK: - App Mode Manager
+
+class AppModeManager: ObservableObject {
+    static let shared = AppModeManager()
+    
+    @Published var isTraditionalModeActive = false
+    
+    private init() {}
+    
+    func enterTraditionalMode() {
+        isTraditionalModeActive = true
+        NSApp.setActivationPolicy(.regular)
+    }
+    
+    func exitTraditionalMode() {
+        isTraditionalModeActive = false
+        NSApp.setActivationPolicy(.accessory)
+    }
+}
+
 final class AppDelegate: NSObject, NSApplicationDelegate {
     private var statusItem: NSStatusItem!
     private let popover = NSPopover()
@@ -102,20 +122,21 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc private func showServiceSettings() {
-        let windowController = ServiceSettingsWindowController()
-        windowController.showWindow(nil)
-        windowController.window?.makeKeyAndOrderFront(nil)
-        NSApp.activate(ignoringOtherApps: true)
+        ServiceSettingsWindowController.show()
     }
     
     @objc private func showLanguageSettings() {
-        let windowController = LanguageSettingsWindowController()
-        windowController.showWindow(nil)
-        windowController.window?.makeKeyAndOrderFront(nil)
-        NSApp.activate(ignoringOtherApps: true)
+        LanguageSettingsWindowController.show()
     }
     
     @objc private func showPopover() {
+        // Se l'app tradizionale è attiva, porta in primo piano quella invece del popover
+        if AppModeManager.shared.isTraditionalModeActive {
+            IOCAnalyzerWindowController.sharedInstance?.window?.makeKeyAndOrderFront(nil)
+            NSApp.activate(ignoringOtherApps: true)
+            return
+        }
+        
         if let button = statusItem.button {
             // Notifica la view di ricaricare la clipboard
             popoverState.shouldRefresh.toggle()
@@ -136,6 +157,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @objc private func togglePopover(_ sender: Any?) {
+        // Se l'app tradizionale è attiva, porta in primo piano quella
+        if AppModeManager.shared.isTraditionalModeActive {
+            IOCAnalyzerWindowController.sharedInstance?.window?.makeKeyAndOrderFront(nil)
+            NSApp.activate(ignoringOtherApps: true)
+            return
+        }
+        
         if popover.isShown {
             popover.performClose(sender)
         } else {
