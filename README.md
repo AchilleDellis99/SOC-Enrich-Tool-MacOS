@@ -27,8 +27,6 @@ SOC Enrich Tool is designed to bridge **rapid triage** and **deep investigation*
 
 ![SOC Enrich Tool Screenshot](Assets.xcassets/screenshot.png)
 
-![IOC Analyzer Dashboard](Assets.xcassets/screenshot-anayze-dash.png)
-
 ![IOC Analyzer Analysis](Assets.xcassets/screenshot-analyze-hp.png)
 
 
