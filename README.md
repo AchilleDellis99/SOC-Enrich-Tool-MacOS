@@ -25,9 +25,12 @@ The IOC Analyzer introduces:
 
 SOC Enrich Tool is designed to bridge **rapid triage** and **deep investigation**, allowing analysts to move seamlessly from quick lookups to advanced IOC analysis within a single macOS ecosystem.
 
-![SOC Enrich Tool Screenshot](screenshots/screenshot.png)
-![SOC Enrich Tool Screenshot](screenshots/screenshot-analyze-hp.png)
-![SOC Enrich Tool Screenshot](screenshots/screenshot-analyze-dash.png)
+![SOC Enrich Tool Screenshot](Assets.xcassets/screenshot.png)
+
+![IOC Analyzer Dashboard](Assets.xcassets/screenshot-anayze-dash.png)
+
+![IOC Analyzer Analysis](Assets.xcassets/screenshot-analyze-hp.png)
+
 
 ---
 
